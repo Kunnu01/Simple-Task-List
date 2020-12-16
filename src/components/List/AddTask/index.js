@@ -20,10 +20,16 @@ const AddTaskInput = () => {
 
   const handleChange = (e) => setDescription(e.target.value)
 
+  const handleAddTask = () => {
+    if (!description.trim().length) return
+    
+    dispatch(addTask(description))
+    setDescription('')
+  }
+  
   const handleHitEnter = (e) => {
-    if (e.charCode === 13 && description.trim().length) {
-      dispatch(addTask(description))
-      setDescription('')
+    if (e.charCode === 13) {
+      handleAddTask()
     }
   }
   
@@ -37,7 +43,7 @@ const AddTaskInput = () => {
       InputProps={{
         startAdornment: (
           <InputAdornment position="start">
-            <AddIcon color="primary" />
+            <AddIcon color="primary" onClick={handleAddTask} />
           </InputAdornment>
         ),
       }}
