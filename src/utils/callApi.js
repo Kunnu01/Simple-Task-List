@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const userId = ''
+const userId = 4
 const baseUrl = `https://tiny-list.herokuapp.com/api/v1/users/${userId}`
 
 const callApi = async (method, url, data) => {
